@@ -1,6 +1,4 @@
 # shadowarc
-![CodeQL](https://github.com/Stridsvagn69420/shadowarc/actions/workflows/codeql.yml/badge.svg?branch=master)
-
 Daemon for properly storing ShadowPlay files when written to my Linux NAS
 
 ## Purpose
