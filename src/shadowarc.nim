@@ -1,5 +1,5 @@
-# This is just an example to get you started. A typical binary package
-# uses this file as the main entry point of the application.
+import config
 
 when isMainModule:
-  echo("shadowarc is still in development!")
+    echo("shadowarc is still in development!")
+    let dirs = read_config()
