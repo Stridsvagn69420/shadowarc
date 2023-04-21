@@ -1,11 +1,8 @@
-APPNAME = shaodwarc
-OUTDIR = build
+APPNAME = shadowarc
 INSTALLDIR = /usr/local/bin
 
 compile:
-	@mkdir -p $(OUTDIR)
-	@cmake -B$(OUTDIR) -S.
-	@cmake --build $(OUTDIR)
+	@nimble build -d:release --opt:speed --passL:-s --passL:-w
 
 clean:
-	@rm -r $(OUTDIR)
+	@rm $(APPNAME)
