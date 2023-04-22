@@ -1,5 +1,5 @@
 # shadowarc
-Daemon for properly storing ShadowPlay files when written to my Linux NAS
+Daemon for properly storing ShadowPlay files when written to a Linux NAS
 
 ## Purpose
 I have a Samba share running on my Raspberry Pi and ShadowPlay's saving location is pointed to it, so that clips automatically get stored on my NAS.  
@@ -10,4 +10,8 @@ There are two problems with it though:
 They aren't actually that much of a problem, but rather just annoyances, but I know that spending hours automating a two minute task is worth it!
 
 # Installation
+## Download
+WIP.
+
+## Systemd
 WIP.
