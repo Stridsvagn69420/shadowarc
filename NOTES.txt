@@ -1,0 +1,17 @@
+How to do that thing that shadowarc is supposed to do.
+It's in German, but I don't care. Nim is German too!
+Use Google Translate or something, idk.
+
+
+1. Für Alle subordner aus Shadowplay-Ordner:
+-> Inotify watch mit IN_CLOSE_WRITE
+--> datei verschieben je nach endung std.strutils.endsWith(path)
+--> in den richtigen subordner kopieren std.os.lastPathPart(std.os.splitFile(path)[0])
+
+2. Inotify für Shadowplay-Ordner mit IN_CREATE und IN_DELETE
+-> watch für ordner hinzufügen bei IN_CREATE
+-> watch für ordner entfernen bei IN_DELETE
+
+alle watches werden in table gespeichert std.tables
+-> Key: ordnerpfad
+-> Value: watch ID

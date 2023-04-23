@@ -20,7 +20,7 @@ proc handleFlags(): bool =
             styledEcho(fgYellow, styleBright, fmt"{Name} - {Desc}")
             prettyKV("Version", fmt"{Version}@{hostOS}-{hostCPU}")
             prettyKV("GitHub", GitRepo)
-            prettyKV(License, fmt"{License} ©️ {Author}")
+            prettyKV("License", fmt"{License} ©️ {Author}")
             prettyKV("Nim", NimVersion)
         # Flag is present. Do not start service!
         return true
