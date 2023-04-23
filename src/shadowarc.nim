@@ -1,7 +1,7 @@
-import config
-import consts
 import std/os
 import std/strformat
+import config
+import consts
 
 ## Handles simple command-line args.
 ## Automatically quits if parameter is unknown.
@@ -19,7 +19,7 @@ proc handleFlags(): bool =
             echo(fmt"Nim: {NimVersion}")
         # Flag is present. Do not start service!
         return true
-    except:
+    except IndexDefect:
         # No additional flags present.
         return false
 
@@ -34,4 +34,7 @@ when isMainModule:
     if handleFlags():
         quit(0)
     else:
-        quit(main())
+        when not defined(linux):
+            echo(Name & " is currently only supported on Linux!")
+        else:
+            quit(main())

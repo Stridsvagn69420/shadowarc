@@ -8,10 +8,10 @@ const Name* {.strdefine.} = "shadowarc"
 const Desc* {.strdefine.} = "Daemon for properly storing ShadowPlay files when written to a Linux NAS"
 
 ## App Version
-const Version* {.strdefine.} = staticExec("git describe --tags --abbrev=0")
+const Version* {.strdefine.} = staticExec("git describe --tags --abbrev=0").replace("\n", "")
 
 ## Git Repository
-const GitRepo* {.strdefine.} = staticExec("git config remote.origin.url").replace(".git", "")
+const GitRepo* {.strdefine.} = staticExec("git config remote.origin.url").replace(".git", "").replace("\n", "")
 
 ## App Author
 const Author* {.strdefine.} = "Stridsvagn69420"
