@@ -1,7 +1,12 @@
 import std/os
 import std/strformat
+import std/terminal
 import config
 import consts
+
+## Wrapper for colorful output on the info message
+proc prettyKV(k: string, v: string) =
+    styledEcho(fgYellow, k & ": ", resetStyle, v)
 
 ## Handles simple command-line args.
 ## Automatically quits if parameter is unknown.
@@ -11,12 +16,12 @@ proc handleFlags(): bool =
         case paramStr(1):
         of "-V", "--version", "version":
             echo(fmt"{Name} {Version} {hostOS}/{hostCPU} (Nim {NimVersion})")
-        of "-h", "--help", "help":
-            echo(fmt"{Name} - {Desc}")
-            echo(fmt"Version: {Version}@{hostOS}-{hostCPU}")
-            echo(fmt"GitHub: {GitRepo}")
-            echo(fmt"License: {License} ©️ {Author}")
-            echo(fmt"Nim: {NimVersion}")
+        of "-h", "--help", "help", "info":
+            styledEcho(fgYellow, styleBright, fmt"{Name} - {Desc}")
+            prettyKV("Version", fmt"{Version}@{hostOS}-{hostCPU}")
+            prettyKV("GitHub", GitRepo)
+            prettyKV(License, fmt"{License} ©️ {Author}")
+            prettyKV("Nim", NimVersion)
         # Flag is present. Do not start service!
         return true
     except IndexDefect:
@@ -35,6 +40,6 @@ when isMainModule:
         quit(0)
     else:
         when not defined(linux):
-            echo(Name & " is currently only supported on Linux!")
+            styledEcho(fgRed, Name & " is currently only supported on Linux!")
         else:
             quit(main())
